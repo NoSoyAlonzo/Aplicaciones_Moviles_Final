@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:id="@+id/titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registro Usuario"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/nombre_registro"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre Completo"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/titulo"
+        />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Correo Electronico"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_registro"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Registrar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Registrar Usuario"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
