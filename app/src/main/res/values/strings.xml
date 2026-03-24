@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ProyectoApp_moviles</string>
+
+    <string name="slogan">Cuidamos a tu mascota como en casa</string>
+    <string name="btnInicio">Iniciar Sesión</string>
+    <string name="btnRegistro">Registrarse</string>
 </resources>
