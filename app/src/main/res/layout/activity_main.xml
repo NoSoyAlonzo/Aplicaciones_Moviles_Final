@@ -10,7 +10,6 @@
         android:padding="20dp"
         tools:context=".MainActivity">
 
-        <!-- Logo -->
         <ImageView
             android:id="@+id/logo"
             android:layout_width="160dp"
@@ -21,7 +20,6 @@
         <!--        android:src="@drawable/logo_mascotas"-->
 
 
-        <!-- Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +34,6 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
-                <!-- Título -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,7 +43,6 @@
                     android:textColor="@color/black"
                     android:layout_marginBottom="6dp"/>
 
-                <!-- Slogan -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,6 +77,7 @@
                     />
 
                 <Button
+                    android:id="@+id/btnInicio"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="@string/btnInicio"
@@ -90,6 +87,7 @@
                     android:layout_marginBottom="12dp"/>
 
                 <Button
+                    android:id="@+id/btnRegistro"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="@string/btnRegistro"

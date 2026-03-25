@@ -8,19 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class ScreenHome : AppCompatActivity() {
+class registro_form : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.screen_home)
+        setContentView(R.layout.registro_form)
 
-        val buttonRegistrar = findViewById<Button>(R.id.agregar_registro)
-
-        buttonRegistrar.setOnClickListener {
-            val intent = Intent(this, AgregarMascota::class.java)
-            startActivity(intent)
+        val btn = findViewById<Button?>(R.id.Registrar)
+        btn?.setOnClickListener {
+            startActivity(Intent(this, ScreenHome::class.java))
         }
 
     }
-
-
 }

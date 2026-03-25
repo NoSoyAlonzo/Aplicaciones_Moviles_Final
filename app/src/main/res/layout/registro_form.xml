@@ -40,8 +40,8 @@
         />
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/numero_celular"
-        android:layout_width=""
-        android:layout_height=""/>
+        android:layout_width="1dp"
+        android:layout_height="1dp"/>
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/fecha_nacimiento"
