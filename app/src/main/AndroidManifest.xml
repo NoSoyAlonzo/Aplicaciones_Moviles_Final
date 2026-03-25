@@ -12,6 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoApp_moviles">
         <activity
+            android:name=".RegistroCuidador"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Reservas"
+            android:exported="false" />
+        <activity
+            android:name=".Explorar"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarMascota"
+            android:exported="false" />
+        <activity
+            android:name=".registro_form"
+            android:exported="false" />
+        <activity
+            android:name=".ScreenHome"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
