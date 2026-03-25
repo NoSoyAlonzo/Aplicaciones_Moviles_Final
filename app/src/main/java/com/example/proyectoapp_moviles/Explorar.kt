@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class Explorar : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +40,11 @@ class Explorar : AppCompatActivity() {
         }
 
 
+        val btnAgregar = findViewById<FloatingActionButton>(R.id.btnAgregarCuidador)
 
-
+        btnAgregar.setOnClickListener {
+            startActivity(Intent(this, RegistroCuidador::class.java))
+        }
 
 
     }
