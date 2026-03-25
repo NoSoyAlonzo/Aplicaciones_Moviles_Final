@@ -437,11 +437,15 @@
 
 
             <Button
+                android:id="@+id/btnCompletar"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Completar registro"
                 android:background="@color/azul_pastel"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                />
+
+
     </LinearLayout>
 
 </ScrollView>

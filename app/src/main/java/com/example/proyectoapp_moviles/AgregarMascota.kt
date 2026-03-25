@@ -1,6 +1,8 @@
 package com.example.proyectoapp_moviles
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +18,11 @@ class AgregarMascota : AppCompatActivity() {
             finish()
         }
 
+        val btnCompletar = findViewById<Button>(R.id.btnCompletar)
+        findViewById<Button>(R.id.btnCompletar).setOnClickListener{
+            val intent = Intent(this, ScreenHome::class.java)
+            startActivity(intent)
+        }
     }
 
 
