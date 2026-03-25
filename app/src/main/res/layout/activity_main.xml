@@ -16,8 +16,9 @@
             android:layout_height="160dp"
             android:scaleType="centerCrop"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
-        <!--        android:src="@drawable/logo_mascotas"-->
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/pet_icon"/>
+
 
 
         <com.google.android.material.card.MaterialCardView

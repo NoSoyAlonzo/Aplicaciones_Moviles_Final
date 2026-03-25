@@ -105,8 +105,9 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:scaleType="centerCrop"/>
-    <!--            android:src="@drawable/perrito"-->
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pet1"/>
+
 
                 <TextView
                     android:text="Elena M."
@@ -153,8 +154,9 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:scaleType="centerCrop"/>
-                <!--            android:src="@drawable/perrito"-->
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pet2"/>
+
 
                 <TextView
                     android:text="Elena M."
@@ -201,8 +203,9 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:scaleType="centerCrop"/>
-                <!--            android:src="@drawable/perrito"-->
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/pet3"/>
+
 
                 <TextView
                     android:text="Elena M."
