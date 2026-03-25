@@ -12,15 +12,11 @@ class AgregarMascota : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.agregar_mascota)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.agregar_registro)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
+            finish()
         }
-            findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
-                finish()
-            }
 
-        }
+    }
+
 
 }
