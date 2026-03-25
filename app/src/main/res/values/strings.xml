@@ -4,4 +4,7 @@
     <string name="slogan">Cuidamos a tu mascota como en casa</string>
     <string name="btnInicio">Iniciar Sesión</string>
     <string name="btnRegistro">Registrarse</string>
+
+    <string name="hint_usuario">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
 </resources>
