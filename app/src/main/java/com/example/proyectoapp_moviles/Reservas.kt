@@ -2,12 +2,12 @@ package com.example.proyectoapp_moviles
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.LinearLayout
-import androidx.activity.enableEdgeToEdge
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.card.MaterialCardView
+import com.google.android.material.datepicker.MaterialDatePicker
 
 class Reservas : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +53,32 @@ class Reservas : AppCompatActivity() {
         card1.setOnClickListener { seleccionar(card1) }
         card2.setOnClickListener { seleccionar(card2) }
         card3.setOnClickListener { seleccionar(card3) }
-    }
 
+
+        val btnFecha = findViewById<Button>(R.id.btnSeleccionarFecha)
+        val txtFechas = findViewById<TextView>(R.id.txtFechas)
+
+        btnFecha.setOnClickListener {
+
+            val picker = MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Selecciona fechas")
+                .build()
+
+            picker.show(supportFragmentManager, "DATE_PICKER")
+
+            picker.addOnPositiveButtonClickListener { selection ->
+
+                val inicio = selection.first
+                val fin = selection.second
+
+                val formato =
+                    java.text.SimpleDateFormat("dd/MM/yyyy", java.util.Locale.getDefault())
+
+                val fechaInicio = formato.format(java.util.Date(inicio!!))
+                val fechaFin = formato.format(java.util.Date(fin!!))
+
+                txtFechas.text = "$fechaInicio - $fechaFin"
+            }
+        }
+    }
 }

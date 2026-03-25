@@ -251,9 +251,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
-                    <CalendarView
+                    <TextView
+                        android:id="@+id/txtFechas"
+                        android:text="Ninguna fecha seleccionada"
+                        android:layout_marginBottom="10dp"
+                        android:textColor="@color/gray"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <Button
+                        android:id="@+id/btnSeleccionarFecha"
+                        android:text="Elegir fechas"
+                        android:backgroundTint="@color/primary"
+                        android:textColor="@android:color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
+
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
