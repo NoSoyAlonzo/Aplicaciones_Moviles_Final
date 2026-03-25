@@ -106,11 +106,60 @@
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/pet1"/>
+                    android:src="@drawable/woman_icon"/>
 
 
                 <TextView
                     android:text="Elena M."
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="⭐ 5.0 (48 reseñas)"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="Experta en perros senior..."
+                    android:textSize="13sp"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="25€ / noche"
+                    android:textStyle="bold"
+                    android:textColor="#006A62"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+
+                android:padding="12dp">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/men_icon"/>
+
+
+                <TextView
+                    android:text="Luis Z."
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:layout_marginTop="8dp"
@@ -155,56 +204,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/pet2"/>
-
-
-                <TextView
-                    android:text="Elena M."
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:text="⭐ 5.0 (48 reseñas)"
-                    android:textSize="12sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-                <TextView
-                    android:text="Experta en perros senior..."
-                    android:textSize="13sp"
-                    android:layout_marginTop="4dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-                <TextView
-                    android:text="25€ / noche"
-                    android:textStyle="bold"
-                    android:textColor="#006A62"
-                    android:layout_marginTop="6dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/bg_card"
-                android:padding="12dp">
-
-                <ImageView
-
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/pet3"/>
+                    android:src="@drawable/woman_icon"/>
 
 
                 <TextView
