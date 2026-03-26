@@ -21,8 +21,6 @@ class RegistroCuidador : AppCompatActivity() {
             finish()
         }
 
-        setContentView(R.layout.registro_cuidador)
-
         val nombre = findViewById<EditText>(R.id.inputNombre)
         val desc = findViewById<EditText>(R.id.inputDesc)
         val spinner = findViewById<Spinner>(R.id.spinnerExp)
