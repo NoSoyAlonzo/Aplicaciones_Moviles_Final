@@ -13,6 +13,7 @@
         android:layout_marginTop="50dp"
         android:text="Registro Usuario"
         android:textSize="27dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,14 +45,18 @@
     <EditText
         android:id="@+id/numero_celular"
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Numero de Celular"
+        android:layout_height="49dp"
+        android:hint="numero de celular"
         android:textSize="15sp"
         android:layout_marginStart="210dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fecha_nacimiento"
         app:layout_constraintTop_toTopOf="@id/fecha_nacimiento"
         />
+<<<<<<< HEAD
+
+=======
+>>>>>>> 5c7854479d463cc5e9d4e03af514449763515807
 
     <EditText
         android:id="@+id/fecha_nacimiento"
@@ -75,6 +80,7 @@
         android:layout_height="wrap_content"
         android:text="Registrar Usuario"
         android:layout_marginTop="50dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
