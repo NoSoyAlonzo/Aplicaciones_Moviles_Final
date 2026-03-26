@@ -12,6 +12,7 @@
         android:layout_marginTop="50dp"
         android:text="Registro Usuario"
         android:textSize="27dp"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,10 +41,9 @@
         />
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/numero_celular"
-<<<<<<< HEAD
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Numero de Celular"
+        android:layout_height="49dp"
+        android:hint="numero de celular"
         android:textSize="15sp"
         android:layout_marginStart="210dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,10 +51,7 @@
         app:layout_constraintTop_toTopOf="@id/fecha_nacimiento"
 
         />
-=======
-        android:layout_width="1dp"
-        android:layout_height="1dp"/>
->>>>>>> cfda186f4ba8e4ddeff8d102934f71528bc48479
+
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/fecha_nacimiento"
@@ -77,6 +74,7 @@
         android:layout_height="wrap_content"
         android:text="Registrar Usuario"
         android:layout_marginTop="50dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
