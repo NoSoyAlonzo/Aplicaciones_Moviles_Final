@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_app"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    >
 
     <androidx.constraintlayout.utils.widget.MotionLabel
         android:id="@+id/titulo"
@@ -14,7 +15,9 @@
         android:textSize="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/nombre_registro"
@@ -38,7 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-    <androidx.appcompat.widget.AppCompatEditText
+    <EditText
         android:id="@+id/numero_celular"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -50,7 +53,7 @@
         app:layout_constraintTop_toTopOf="@id/fecha_nacimiento"
         />
 
-    <androidx.appcompat.widget.AppCompatEditText
+    <EditText
         android:id="@+id/fecha_nacimiento"
         android:layout_width="150dp"
         android:layout_height="50dp"
@@ -62,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/correo_electronico"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintStart_toEndOf="parent"
+
         />
     
 
@@ -74,5 +78,6 @@
         app:layout_constraintTop_toBottomOf="@+id/fecha_nacimiento"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/azul_pastel"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
