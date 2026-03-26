@@ -92,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="@string/btnRegistro"
-                    android:textColor="@color/azul_pastel"
+                    android:textColor="@color/white"
                     app:strokeColor="@color/azul_pastel"
                     app:strokeWidth="2dp"
                     app:cornerRadius="12dp"/>
