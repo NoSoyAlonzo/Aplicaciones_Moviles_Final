@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.google.gms.google.services)
 }
 
 android {
@@ -38,7 +39,12 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.firebase.common.ktx)
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore.ktx)
     implementation(libs.material)
+    implementation("com.google.firebase:firebase-database:22.0.1")
+    implementation("com.google.firebase:firebase-firestore:26.2.0")
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)

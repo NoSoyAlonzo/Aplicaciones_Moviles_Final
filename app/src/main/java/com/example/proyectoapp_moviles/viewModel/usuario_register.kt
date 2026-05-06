@@ -1,6 +1,7 @@
 package com.example.proyectoapp_moviles.viewModel
 
 import androidx.lifecycle.ViewModel
+import com.example.proyectoapp_moviles.model.Usuario
 
 class usuario_register: ViewModel() {
 
@@ -12,12 +13,13 @@ class usuario_register: ViewModel() {
 
     fun registrar(nombre:String,e_mail:String,password: String,no_cel:Int){
 
-        val usuario=Usuario(
-            nombre=nombre,
-            e_mail=e_mail,
-            password=password,
-            no_cel=no_cel,
-            fecha_nacimiento=fecha_nacimiento
+        val usuario= Usuario(
+            nombre = nombre,
+            e_mail = e_mail,
+            password = password,
+            no_cel = no_cel,
+            fechaNacimiento = fecha_nacimiento,
+
         )
 
         //llamar al repository
