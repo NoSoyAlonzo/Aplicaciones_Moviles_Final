@@ -1,7 +1,8 @@
 package com.example.proyectoapp_moviles.viewModel
 
 import androidx.lifecycle.ViewModel
-import com.example.proyectoapp_moviles.model.Usuario
+import com.example.proyectoapp_moviles.model.usuario
+import java.time.LocalDate
 
 class usuario_register: ViewModel() {
 
@@ -11,14 +12,15 @@ class usuario_register: ViewModel() {
         fecha_nacimiento=fecha
     }
 
-    fun registrar(nombre:String,e_mail:String,password: String,no_cel:Int){
+    fun registrar(nombre:String, e_mail:String, password: String, fechaNacimiento: String, no_cel:String){
 
-        val usuario= Usuario(
+        val usuario= usuario(
             nombre = nombre,
             e_mail = e_mail,
             password = password,
-            no_cel = no_cel,
-            fechaNacimiento = fecha_nacimiento,
+            fechaN = fechaNacimiento,
+            noCelular = no_cel,
+
 
         )
 

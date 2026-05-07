@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.proyectoapp_moviles.model.usuario
 import com.google.firebase.Firebase
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.firestore
+
 import java.time.LocalDate
 import kotlin.collections.emptyList
 
