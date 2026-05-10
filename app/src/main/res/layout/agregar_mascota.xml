@@ -77,14 +77,13 @@
                 android:src="@drawable/daschund_icon" />
 
             <TextView
-                android:text="Ayúdanos a conocer a tu mejor amigo"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginBottom="6dp"
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="6dp"
+                android:text="Ayúdanos a conocer a tu mejor amigo"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:text="Cada detalle nos ayuda a brindar el mejor cuidado para tu mascota."
@@ -160,6 +159,7 @@
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/e_nombre_mascota"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
@@ -170,7 +170,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
-
+                    android:id="@+id/e_especie_mascota"
                     android:text="Tipo de mascota"
                     android:textSize="10sp"
                     android:textColor="@color/black"
@@ -192,6 +192,7 @@
 
 
                     <AutoCompleteTextView
+                        android:id="@+id/e_especie_mascota"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:padding="12dp"
@@ -245,7 +246,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:text="Historial médico"
+
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:layout_marginBottom="4dp"
@@ -255,6 +256,7 @@
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:text="Historial médico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Alergias, cirugías previas o condiciones crónicas..."
@@ -266,6 +268,7 @@
 
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/e_historial_medico"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textMultiLine"
@@ -283,6 +286,7 @@
                     android:layout_width="match_parent"
                     />
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/e_dietaMascota"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Ej. Alimento seco libre de grano"
@@ -315,6 +319,7 @@
                     >
 
                     <RadioButton
+                        android:id="@+id/r_2veces"
                         android:text="2 veces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -323,6 +328,7 @@
                         />
 
                     <RadioButton
+                        android:id="@+id/r_3veces"
                         android:text="3 veces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -332,6 +338,7 @@
                         />
 
                     <RadioButton
+                        android:id="@+id/r_libre"
                         android:text="Libre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -395,6 +402,7 @@
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txf_instrucciones"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Instrucciones"
@@ -424,6 +432,7 @@
                     />
 
                 <Button
+                    android:id="@+id/btn_subirFoto"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:text="Subir foto"
@@ -438,7 +447,7 @@
 
 
             <Button
-                android:id="@+id/btnCompletar"
+                android:id="@+id/btnRegistroMascota"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="Completar registro"

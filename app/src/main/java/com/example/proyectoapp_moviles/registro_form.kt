@@ -4,12 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.proyectoapp_moviles.DAO.UsuarioDAO
-import com.example.proyectoapp_moviles.model.usuario
+import com.example.proyectoapp_moviles.model.Usuario
 
 
 class registro_form : AppCompatActivity() {
@@ -29,13 +26,14 @@ class registro_form : AppCompatActivity() {
         val txtCelular = findViewById<EditText>(R.id.numero_celular)
 
         val btn = findViewById<Button?>(R.id.Registrar)
+        //Radio button para la
         btn?.setOnClickListener {
             startActivity(Intent(this, ScreenHome::class.java))
         }
 
         btn.setOnClickListener {
 
-            val usuario = usuario(
+            val usuario = Usuario(
 
                 nombre = txtNombre.text.toString(),
                 e_mail = txtEmail.text.toString(),

@@ -1,14 +1,7 @@
 package com.example.proyectoapp_moviles.DAO
 
-import android.R.attr.id
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.example.proyectoapp_moviles.model.usuario
-import com.google.firebase.Firebase
+import com.example.proyectoapp_moviles.model.Usuario
 import com.google.firebase.database.FirebaseDatabase
-
-import java.time.LocalDate
-import kotlin.collections.emptyList
 
 class UsuarioDAO {
 
@@ -18,7 +11,7 @@ class UsuarioDAO {
         .getReference("usuarios")
 
 
-    fun agregar(usuario: usuario) {
+    fun agregar(usuario: Usuario) {
 
         val id = dbRef.push().key!!
 
@@ -28,7 +21,7 @@ class UsuarioDAO {
     }
 
 
-    fun actualizar(usuario: usuario) {
+    fun actualizar(usuario: Usuario) {
 
         dbRef.child(usuario.id).setValue(usuario)
     }
