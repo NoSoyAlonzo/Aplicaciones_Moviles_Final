@@ -33,7 +33,7 @@ class AgregarMascota : AppCompatActivity() {
 
                 nombre = e_nombre_mascota.text.toString(),
                 raza=e_especie_mascota.text.toString(),
-                historial=e_historial_medico.text.toString(),
+                historial_medico =e_historial_medico.text.toString(),
                 dieta=e_dieta_mascota.text.toString()
             )
         }
