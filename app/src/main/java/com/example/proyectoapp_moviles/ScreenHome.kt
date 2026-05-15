@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoapp_moviles.DAO.MascotaDAO
+import android.widget.Toast
 
 
 class ScreenHome : AppCompatActivity() {
@@ -75,13 +76,41 @@ class ScreenHome : AppCompatActivity() {
     private fun cargarMascotas() {
 
         val uid =
-            FirebaseAuth.getInstance()
-                .currentUser?.uid ?: ""
+            FirebaseAuth.getInstance().currentUser?.uid ?: ""
 
         mascotaDAO.obtenerMascotasUsuario(uid) { lista ->
 
-            val adapter =
-                MascotaAdapter(lista)
+            val adapter = MascotaAdapter(
+
+                lista,
+
+                onEliminar = { mascota ->
+
+                    mascotaDAO.eliminar(mascota.id)
+
+                    cargarMascotas()
+
+                },
+
+                onEditar = { mascota ->
+
+                    val intent =
+                        Intent(this, AgregarMascota::class.java)
+
+                    intent.putExtra("id", mascota.id)
+                    intent.putExtra("nombre", mascota.nombre)
+                    intent.putExtra("especie", mascota.especie)
+                    intent.putExtra("raza", mascota.raza)
+                    intent.putExtra("historial", mascota.historial_medico)
+                    intent.putExtra("dieta", mascota.dieta)
+                    intent.putExtra(
+                        "instrucciones",
+                        mascota.instrucciones_salud
+                    )
+
+                    startActivity(intent)
+                }
+            )
 
             recyclerMascotas.adapter = adapter
         }

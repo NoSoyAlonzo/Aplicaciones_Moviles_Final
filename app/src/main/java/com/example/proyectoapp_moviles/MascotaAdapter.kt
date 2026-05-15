@@ -1,14 +1,17 @@
 package com.example.proyectoapp_moviles
 
+import android.widget.Button
+import android.widget.TextView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoapp_moviles.model.Mascota
 
 class MascotaAdapter(
-    private val lista: List<Mascota>
+    private val lista: List<Mascota>,
+    private val onEliminar: (Mascota) -> Unit,
+    private val onEditar: (Mascota) -> Unit
 ) : RecyclerView.Adapter<MascotaAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -21,6 +24,21 @@ class MascotaAdapter(
 
         val txtRaza =
             view.findViewById<TextView>(R.id.txtRaza)
+
+        val txtDieta =
+            view.findViewById<TextView>(R.id.txtDieta)
+
+        val txtHistorial =
+            view.findViewById<TextView>(R.id.txtHistorial)
+
+        val txtInstrucciones =
+            view.findViewById<TextView>(R.id.txtInstrucciones)
+
+        val btnEliminar =
+            view.findViewById<Button>(R.id.btnEliminar)
+
+        val btnEditar =
+            view.findViewById<Button>(R.id.btnEditar)
     }
 
     override fun onCreateViewHolder(
@@ -43,5 +61,17 @@ class MascotaAdapter(
         holder.txtNombre.text = mascota.nombre
         holder.txtEspecie.text = mascota.especie
         holder.txtRaza.text = mascota.raza
+        holder.txtDieta.text = mascota.dieta
+        holder.txtHistorial.text = mascota.historial_medico
+        holder.txtInstrucciones.text =
+            mascota.instrucciones_salud
+
+        holder.btnEliminar.setOnClickListener {
+            onEliminar(mascota)
+        }
+
+        holder.btnEditar.setOnClickListener {
+            onEditar(mascota)
+        }
     }
 }

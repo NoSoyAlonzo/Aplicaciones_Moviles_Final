@@ -17,6 +17,9 @@ class AgregarMascota : AppCompatActivity() {
 
     private val mascotaDAO = MascotaDAO()
 
+    private var mascotaId = ""
+    private var modoEdicion = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.agregar_mascota)
@@ -80,6 +83,58 @@ class AgregarMascota : AppCompatActivity() {
         val btnAgregarMascota =
             findViewById<Button>(R.id.btnRegistroMascota)
 
+        // Revisar si viene en modo edición
+        mascotaId =
+            intent.getStringExtra("id") ?: ""
+
+        if (mascotaId.isNotEmpty()) {
+
+            modoEdicion = true
+
+            eNombre.setText(
+                intent.getStringExtra("nombre")
+            )
+
+            eEspecie.setText(
+                intent.getStringExtra("especie"),
+                false
+            )
+
+            eRaza.setText(
+                intent.getStringExtra("raza")
+            )
+
+            eHistorial.setText(
+                intent.getStringExtra("historial")
+            )
+
+            eDieta.setText(
+                intent.getStringExtra("dieta")
+            )
+
+            eInstrucciones.setText(
+                intent.getStringExtra("instrucciones")
+            )
+
+            // Restaurar frecuencia
+            val dietaGuardada =
+                intent.getStringExtra("dieta") ?: ""
+
+            when {
+                dietaGuardada.contains("2 veces") ->
+                    r2Veces.isChecked = true
+
+                dietaGuardada.contains("3 veces") ->
+                    r3Veces.isChecked = true
+
+                dietaGuardada.contains("Libre") ->
+                    rLibre.isChecked = true
+            }
+
+            btnAgregarMascota.text =
+                "Guardar cambios"
+        }
+
         btnAgregarMascota.setOnClickListener {
 
             val uid =
@@ -88,14 +143,21 @@ class AgregarMascota : AppCompatActivity() {
 
             // Obtener frecuencia
             val frecuencia = when {
-                r2Veces.isChecked -> "2 veces"
-                r3Veces.isChecked -> "3 veces"
-                rLibre.isChecked -> "Libre"
+
+                r2Veces.isChecked ->
+                    "2 veces"
+
+                r3Veces.isChecked ->
+                    "3 veces"
+
+                rLibre.isChecked ->
+                    "Libre"
+
                 else -> ""
             }
 
             // Validaciones
-            if (eNombre.text.toString().isEmpty()) {
+            if (eNombre.text.toString().trim().isEmpty()) {
 
                 Toast.makeText(
                     this,
@@ -106,7 +168,7 @@ class AgregarMascota : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (eEspecie.text.toString().isEmpty()) {
+            if (eEspecie.text.toString().trim().isEmpty()) {
 
                 Toast.makeText(
                     this,
@@ -117,14 +179,16 @@ class AgregarMascota : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Crear mascota
+            // Crear objeto mascota
             val mascota = Mascota(
-                id = "",
+                id = mascotaId,
                 uidUsuario = uid,
                 nombre = eNombre.text.toString(),
                 especie = eEspecie.text.toString(),
                 raza = eRaza.text.toString(),
-                historial_medico = eHistorial.text.toString(),
+                historial_medico =
+                    eHistorial.text.toString(),
+
                 instrucciones_salud =
                     eInstrucciones.text.toString(),
 
@@ -133,26 +197,41 @@ class AgregarMascota : AppCompatActivity() {
                             " | Frecuencia: $frecuencia"
             )
 
-            // Guardar
-            mascotaDAO.agregar(mascota) { success ->
+            // Guardar o actualizar
+            if (modoEdicion) {
 
-                if (success) {
+                mascotaDAO.actualizar(mascota)
 
-                    Toast.makeText(
-                        this,
-                        "Mascota agregada correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                Toast.makeText(
+                    this,
+                    "Mascota actualizada",
+                    Toast.LENGTH_SHORT
+                ).show()
 
-                    finish()
+                finish()
 
-                } else {
+            } else {
 
-                    Toast.makeText(
-                        this,
-                        "Error al guardar mascota",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                mascotaDAO.agregar(mascota) { success ->
+
+                    if (success) {
+
+                        Toast.makeText(
+                            this,
+                            "Mascota agregada",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        finish()
+
+                    } else {
+
+                        Toast.makeText(
+                            this,
+                            "Error al guardar",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }
