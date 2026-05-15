@@ -7,6 +7,7 @@ data class Cuidador (
     var descripcion:String= "",
     var paseos: String= "",
     var hospedaje:String= "",
-    var ciudado_diario: String= ""
+    var ciudado_diario: String= "",
+    var aceptado: Boolean=false,
 
 )
