@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pastel_celeste"
-    >
-
+    android:background="@color/pastel_celeste">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,6 +11,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <!-- HEADER -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,198 +19,45 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="20dp">
 
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:text="Registrar Mascota"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_marginBottom="16dp"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrar Mascota"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/black" />
 
             <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1" />
 
             <ImageButton
-                android:layout_marginRight="10dp"
                 android:id="@+id/btnBack"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_delete"
-                android:contentDescription="Regresar"
-                android:tint="@color/black"/>
+                android:tint="@color/black"
+                android:contentDescription="Regresar" />
         </LinearLayout>
 
-        <LinearLayout
+        <!-- IMAGEN -->
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp">
+            android:layout_height="180dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_image"
+            android:scaleType="centerCrop"
+            android:src="@drawable/daschund_icon" />
 
-            <TextView
-                android:text="Nuevo integrante"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:textColor="@color/azul_pastel"
-                android:layout_marginBottom="4dp"
-
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                />
-
-            <!--            android:background="@drawable/rounded_image"-->
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_image"
-
-                android:scaleType="centerCrop"
-                android:src="@drawable/daschund_icon" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="6dp"
-                android:text="Ayúdanos a conocer a tu mejor amigo"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:text="Cada detalle nos ayuda a brindar el mejor cuidado para tu mascota."
-                android:textSize="14sp"
-                android:textColor="@color/gray"
-                android:lineSpacingExtra="2dp"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                />
-        </LinearLayout>
-
+        <!-- CARD DATOS -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            android:layout_marginBottom="16dp"
-            android:padding="0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp"
-                android:background="@color/pastel_lavanda"
-                app:cardElevation="6dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:text="1"
-                        android:textStyle="bold"
-                        android:textSize="40sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"/>
-
-                    <TextView
-                        android:text="Identidad Básica"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
-                <TextView
-                    android:text="Nombre de la Mascota"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/hit_nombreMascota"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    app:boxCornerRadiusTopStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusBottomEnd="16dp"
-                    android:textColor="@color/black"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/e_nombre_mascota"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp"
-                        android:inputType="text"
-                        android:textColor="@color/black"
-                        android:background="@color/white"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/e_especie_mascota"
-                    android:text="Tipo de mascota"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="12dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    app:endIconMode="dropdown_menu"
-                    app:boxCornerRadiusTopStart="25dp"
-                    app:boxCornerRadiusTopEnd="25dp"
-                    app:boxCornerRadiusBottomStart="25dp"
-                    app:boxCornerRadiusBottomEnd="25dp">
-
-
-                    <AutoCompleteTextView
-                        android:id="@+id/e_especie_mascota"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:padding="12dp"
-                        android:inputType="none"
-                        android:text="Perro"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="6dp"
-            android:layout_marginBottom="16dp"
             app:cardBackgroundColor="@color/pastel_lavanda">
 
             <LinearLayout
@@ -220,171 +66,74 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:layout_marginBottom="12dp">
-
-                    <TextView
-                        android:text="2"
-                        android:textStyle="bold"
-                        android:textSize="40sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"/>
-
-                    <TextView
-                        android:text="Salud y Nutrición"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="@color/black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                </LinearLayout>
-
                 <TextView
-
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="4dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:text="Historial médico"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Alergias, cirugías previas o condiciones crónicas..."
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginBottom="12dp"
-                    android:textColorHint="@color/gray"
-                    android:background="@color/white">
-
-
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/e_historial_medico"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:minLines="3"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:text="Dieta"
-                    android:textSize="12sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="4dp"
-
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    />
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/e_dietaMascota"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Ej. Alimento seco libre de grano"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginBottom="12dp"
-                    android:textColorHint="@color/gray"
-                    android:background="@color/white"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:text="Frecuencia de alimentación"
-                    android:layout_marginBottom="8dp"
-                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Datos básicos"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="16dp" />
 
-                <RadioGroup
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
+                <!-- NOMBRE -->
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="Nombre de la mascota"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-
-                    >
-
-                    <RadioButton
-                        android:id="@+id/r_2veces"
-                        android:text="2 veces"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/e_nombre_mascota"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/azul_pastel"
-                        />
+                        android:padding="12dp"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <RadioButton
-                        android:id="@+id/r_3veces"
-                        android:text="3 veces"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/azul_pastel"
-                        />
+                <!-- ESPECIE -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Especie"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
-                    <RadioButton
-                        android:id="@+id/r_libre"
-                        android:text="Libre"
-                        android:layout_width="wrap_content"
+                    <AutoCompleteTextView
+                        android:id="@+id/e_especie_mascota"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/azul_pastel"
-                        />
-                </RadioGroup>
+                        android:padding="12dp"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- RAZA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Raza"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtRaza"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="12dp">
-
-            <TextView
-                android:text="3"
-                android:textStyle="bold"
-                android:textSize="40sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"/>
-
-            <TextView
-                android:text="Cuidado Especial"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
+        <!-- CARD SALUD -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="6dp"
-            app:cardBackgroundColor="@color/pastel_lavanda"
-            >
+            app:cardBackgroundColor="@color/pastel_lavanda">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -393,68 +142,150 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:text="Instrucciones Críticas"
-                    android:textSize="10sp"
-                    android:textColor="@color/black"
-                    android:layout_marginBottom="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txf_instrucciones"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Instrucciones"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_marginBottom="16dp"
-                    app:boxCornerRadiusTopStart="16dp"
-                    app:boxCornerRadiusTopEnd="16dp"
-                    app:boxCornerRadiusBottomStart="16dp"
-                    app:boxCornerRadiusBottomEnd="16dp">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textMultiLine"
-                        android:minLines="3"
-                        android:padding="12dp"
-                        android:background="@color/white"/>
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:text="Foto de la mascota"
+                    android:text="Salud y nutrición"
+                    android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="@color/black"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- HISTORIAL -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Historial médico"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/e_historial_medico"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="3"
+                        android:padding="12dp"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- DIETA -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:hint="Dieta"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtDieta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- FRECUENCIA -->
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    />
-
-                <Button
-                    android:id="@+id/btn_subirFoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:text="Subir foto"
-                    android:backgroundTint="@color/pastel_lavanda"
+                    android:text="Frecuencia de alimentación"
                     android:textColor="@color/black"
-                    android:background="@color/pastel_durazno"
-                    />
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioFrecuencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/r_2veces"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2 veces" />
+
+                    <RadioButton
+                        android:id="@+id/r_3veces"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="3 veces" />
+
+                    <RadioButton
+                        android:id="@+id/r_libre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="Libre" />
+
+                </RadioGroup>
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- CARD CUIDADOS -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="6dp"
+            app:cardBackgroundColor="@color/pastel_lavanda">
 
-            <Button
-                android:id="@+id/btnRegistroMascota"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Completar registro"
-                android:background="@color/azul_pastel"
-                android:textColor="@color/white"
-                />
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cuidados especiales"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- INSTRUCCIONES -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Instrucciones especiales"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/e_instrucciones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="3"
+                        android:padding="12dp"
+                        android:inputType="textMultiLine" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- FOTO -->
+                <Button
+                    android:id="@+id/btn_subirFoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Subir foto"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/pastel_durazno" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- BOTON FINAL -->
+        <Button
+            android:id="@+id/btnRegistroMascota"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Completar registro"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/azul_pastel" />
 
     </LinearLayout>
 
