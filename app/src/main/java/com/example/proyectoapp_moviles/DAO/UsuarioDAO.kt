@@ -12,13 +12,19 @@ class UsuarioDAO {
         .getReference("usuarios")
 
 
-    fun agregar(usuario: Usuario) {
+    fun agregar(usuario: Usuario, callback: (Boolean) -> Unit) {
 
         val id = dbRef.push().key!!
 
         usuario.id = id
 
         dbRef.child(id).setValue(usuario)
+            .addOnSuccessListener {
+                callback(true)
+            }
+            .addOnFailureListener {
+                callback(false)
+            }
     }
 
 

@@ -53,6 +53,7 @@
                     android:layout_marginBottom="20dp"/>
 
                 <EditText
+                    android:id="@+id/etCorreo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_usuario"
@@ -65,17 +66,12 @@
                     />
 
                 <EditText
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_password"
-                    app:endIconMode="password_toggle"
-                    app:boxBackgroundMode="outline"
-                    app:boxCornerRadiusTopStart="12dp"
-                    app:boxCornerRadiusTopEnd="12dp"
-                    app:boxCornerRadiusBottomStart="12dp"
-                    app:boxCornerRadiusBottomEnd="12dp"
-                    android:layout_marginBottom="20dp"
-                    />
+                    android:inputType="textPassword"
+                    android:layout_marginBottom="20dp"/>
 
                 <Button
                     android:id="@+id/btnInicio"

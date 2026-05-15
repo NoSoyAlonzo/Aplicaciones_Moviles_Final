@@ -59,6 +59,10 @@ dependencies {
 
 
     implementation("com.google.firebase:firebase-database:22.0.1")
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.googleid)
 
 
 
