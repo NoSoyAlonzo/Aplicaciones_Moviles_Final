@@ -10,7 +10,6 @@ import com.example.proyectoapp_moviles.DAO.UsuarioDAO
 import com.example.proyectoapp_moviles.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
 
-
 class registro_form : AppCompatActivity() {
 
     private val UsuarioD= UsuarioDAO()
@@ -38,47 +37,28 @@ class registro_form : AppCompatActivity() {
 
         btn.setOnClickListener {
 
-            val nombre = txtNombre.text.toString().trim()
-            val email = txtEmail.text.toString().trim()
+            val correo = txtEmail.text.toString().trim()
             val password = txtPassword.text.toString().trim()
-            val fecha = txtFecha.text.toString().trim()
-            val celular = txtCelular.text.toString().trim()
 
-            if (
-                nombre.isEmpty() ||
-                email.isEmpty() ||
-                password.isEmpty() ||
-                fecha.isEmpty() ||
-                celular.isEmpty()
-            ) {
-
-                Toast.makeText(
-                    this,
-                    "Completa todos los campos",
-                    Toast.LENGTH_SHORT
-                ).show()
-
-                return@setOnClickListener
-            }
-
-            // CREAR USUARIO EN AUTHENTICATION
-            auth.createUserWithEmailAndPassword(email, password)
+            auth.createUserWithEmailAndPassword(correo, password)
                 .addOnCompleteListener(this) { task ->
 
                     if (task.isSuccessful) {
 
+                        val uid = auth.currentUser?.uid ?: ""
+
                         val usuario = Usuario(
-                            nombre = nombre,
-                            e_mail = email,
+                            uidAuth = uid,
+                            nombre = txtNombre.text.toString(),
+                            e_mail = correo,
                             password = password,
-                            fechaN = fecha,
-                            noCelular = celular
+                            fechaN = txtFecha.text.toString(),
+                            noCelular = txtCelular.text.toString()
                         )
 
-                        // GUARDAR EN REALTIME DATABASE
-                        UsuarioD.agregar(usuario) { exitoso ->
+                        UsuarioD.agregar(usuario) { success ->
 
-                            if (exitoso) {
+                            if (success) {
 
                                 Toast.makeText(
                                     this,
@@ -86,15 +66,17 @@ class registro_form : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
 
-                                val intent = Intent(this, ScreenHome::class.java)
-                                startActivity(intent)
+                                startActivity(
+                                    Intent(this, ScreenHome::class.java)
+                                )
+
                                 finish()
 
                             } else {
 
                                 Toast.makeText(
                                     this,
-                                    "Error guardando datos",
+                                    "Error guardando usuario",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }

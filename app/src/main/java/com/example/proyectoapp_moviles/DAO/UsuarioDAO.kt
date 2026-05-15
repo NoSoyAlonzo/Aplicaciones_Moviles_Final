@@ -35,9 +35,18 @@ class UsuarioDAO {
 
 
 
-    fun eliminar(id: String) {
+    fun activar(id: String) {
 
-        dbRef.child(id).removeValue()
+        dbRef.child(id)
+            .child("activo")
+            .setValue(true)
+    }
+
+    fun desactivar(id: String) {
+
+        dbRef.child(id)
+            .child("activo")
+            .setValue(false)
     }
 
     fun encontrarPorID(id: String, callback: (Usuario?) -> Unit){
@@ -48,14 +57,28 @@ class UsuarioDAO {
             callback(null)
         }
     }
-    fun obtenerTodos(callback: (List<Cuidador>) -> Unit) {
-        dbRef.get().addOnSuccessListener { snapshot ->
-            val list = mutableListOf<Cuidador>()
-            for (child in snapshot.children) {
-                child.getValue(Cuidador::class.java)?.let { list.add(it) }
-            }
-            callback(list)
-        }
 
+
+    fun obtenerTodosUsuarios(callback: (List<Usuario>) -> Unit) {
+
+        dbRef.get().addOnSuccessListener { snapshot ->
+
+            val lista = mutableListOf<Usuario>()
+
+            for (child in snapshot.children) {
+
+                val usuario = child.getValue(Usuario::class.java)
+
+                if (usuario != null) {
+                    lista.add(usuario)
+                }
+            }
+
+            callback(lista)
+
+        }.addOnFailureListener {
+
+            callback(emptyList())
+        }
     }
 }

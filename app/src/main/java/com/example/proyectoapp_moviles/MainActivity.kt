@@ -8,7 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.proyectoapp_moviles.model.Usuario
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +39,12 @@ class MainActivity : AppCompatActivity() {
         val btnInicio = findViewById<Button>(R.id.btnInicio)
         val btnRegistro = findViewById<Button>(R.id.btnRegistro)
 
+        btnRegistro.setOnClickListener {
+
+            val intent = Intent(this, registro_form::class.java)
+            startActivity(intent)
+        }
+
         btnInicio.setOnClickListener {
 
             val correo = etCorreo.text.toString().trim()
@@ -52,15 +60,57 @@ class MainActivity : AppCompatActivity() {
 
                     if (task.isSuccessful) {
 
-                        Toast.makeText(
-                            this,
-                            "Inicio de sesión exitoso",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        val uid = auth.currentUser?.uid ?: ""
 
-                        val intent = Intent(this, ScreenHome::class.java)
-                        startActivity(intent)
-                        finish()
+                        val dbRef = FirebaseDatabase
+                            .getInstance()
+                            .getReference("usuarios")
+
+                        dbRef.get().addOnSuccessListener { snapshot ->
+
+                            var usuarioActivo = true
+
+                            for (child in snapshot.children) {
+
+                                val usuario = child.getValue(Usuario::class.java)
+
+                                if (usuario?.uidAuth == uid) {
+
+                                    usuarioActivo = usuario.activo
+                                    break
+                                }
+                            }
+
+                            if (!usuarioActivo) {
+
+                                FirebaseAuth.getInstance().signOut()
+
+                                Toast.makeText(
+                                    this,
+                                    "Cuenta desactivada",
+                                    Toast.LENGTH_LONG
+                                ).show()
+
+                                return@addOnSuccessListener
+                            }
+
+                            // ADMIN
+                            if (correo == "admin@gmail.com" &&
+                                password == "admin123") {
+
+                                startActivity(
+                                    Intent(this, admin_usuarios::class.java)
+                                )
+
+                            } else {
+
+                                startActivity(
+                                    Intent(this, ScreenHome::class.java)
+                                )
+                            }
+
+                            finish()
+                        }
 
                     } else {
 
@@ -71,11 +121,6 @@ class MainActivity : AppCompatActivity() {
                         ).show()
                     }
                 }
-        }
-
-        btnRegistro.setOnClickListener {
-            val intent = Intent(this, registro_form::class.java)
-            startActivity(intent)
         }
     }
 }
