@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoApp_moviles">
         <activity
+            android:name=".admin_cuidadores"
+            android:exported="false" />
+        <activity
+            android:name=".admin_usuarios"
+            android:exported="false" />
+        <activity
             android:name=".RegistroCuidador"
             android:exported="false" />
         <activity

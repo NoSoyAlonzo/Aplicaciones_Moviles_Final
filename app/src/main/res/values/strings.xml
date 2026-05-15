@@ -6,7 +6,6 @@
     <string name="btnRegistro">Registrarse</string>
 
 
-
     <string name="hint_usuario">Correo electrónico</string>
     <string name="hint_password">Contraseña</string>
     <string name="hit_nombreMascota">Ej.Luna o MAx</string>
