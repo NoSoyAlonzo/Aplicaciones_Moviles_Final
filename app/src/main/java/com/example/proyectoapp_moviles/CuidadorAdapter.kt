@@ -14,109 +14,58 @@ class CuidadorAdapter(
     private val lista: List<Cuidador>
 ) : RecyclerView.Adapter<CuidadorAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View)
-        : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val btnContratar =
-            view.findViewById<Button>(R.id.btnContratar)
+        val btnContratar = view.findViewById<Button>(R.id.btnContratar)
 
-        val txtNombre =
-            view.findViewById<TextView>(R.id.txtNombre)
+        val txtNombre = view.findViewById<TextView>(R.id.txtNombre)
+        val txtDescripcion = view.findViewById<TextView>(R.id.txtDescripcion)
+        val txtPrecio = view.findViewById<TextView>(R.id.txtPrecio)
+        val txtExperiencia = view.findViewById<TextView>(R.id.txtExperiencia)
+        val txtHospedaje = view.findViewById<TextView>(R.id.txtHospedaje)
+        val txtPaseos = view.findViewById<TextView>(R.id.txtPaseos)
 
-        val txtDescripcion =
-            view.findViewById<TextView>(R.id.txtDescripcion)
-
-        val txtPrecio =
-            view.findViewById<TextView>(R.id.txtPrecio)
-
-        val txtExperiencia =
-            view.findViewById<TextView>(R.id.txtExperiencia)
-
-        val txtHospedaje =
-            view.findViewById<TextView>(R.id.txtHospedaje)
-
-        val txtPaseos =
-            view.findViewById<TextView>(R.id.txtPaseos)
-
-        val imgCuidador =
-            view.findViewById<ImageView>(R.id.imgCuidador)
+        val imgCuidador = view.findViewById<ImageView>(R.id.imgCuidador)
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val view = LayoutInflater
-            .from(parent.context)
-            .inflate(
-                R.layout.item_cuidador,
-                parent,
-                false
-            )
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_cuidador, parent, false)
 
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int =
-        lista.size
+    override fun getItemCount(): Int = lista.size
 
-    override fun onBindViewHolder(
-        holder: ViewHolder,
-        position: Int
-    ) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
         val cuidador = lista[position]
 
-        // NOMBRE
-        holder.txtNombre.text =
-            cuidador.nCompleto
+        holder.txtNombre.text = cuidador.nCompleto
+        holder.txtDescripcion.text = cuidador.descripcion
+        holder.txtExperiencia.text = "Experiencia: ${cuidador.aniosExp}"
+        holder.txtPrecio.text = "$${cuidador.precio} / noche"
 
-        // DESCRIPCION
-        holder.txtDescripcion.text =
-            cuidador.descripcion
-
-        // EXPERIENCIA
-        holder.txtExperiencia.text =
-            "Experiencia: ${cuidador.aniosExp}"
-
-        // PRECIO
-        holder.txtPrecio.text =
-            "$${cuidador.precio} / noche"
-
-        // SERVICIOS
         holder.txtHospedaje.visibility =
-            if (cuidador.hospedaje)
-                View.VISIBLE
-            else
-                View.GONE
+            if (cuidador.hospedaje) View.VISIBLE else View.GONE
 
         holder.txtPaseos.visibility =
-            if (cuidador.paseos)
-                View.VISIBLE
-            else
-                View.GONE
+            if (cuidador.paseos) View.VISIBLE else View.GONE
 
-        // BOTON CONTRATAR
         holder.btnContratar.setOnClickListener {
 
-            val intent = Intent(
-                holder.itemView.context,
-                Reservas::class.java
-            )
+            val context = holder.itemView.context
 
-            intent.putExtra(
-                "nombreCuidador",
-                cuidador.nCompleto
-            )
+            val intent = Intent(context, Reservas::class.java)
 
-            intent.putExtra(
-                "precioCuidador",
-                cuidador.precio
-            )
+            // 🔥 IMPORTANTE: ESTE ES EL QUE TE FALTABA
+            intent.putExtra("uidCuidador", cuidador.uidUsuario)
 
-            holder.itemView.context
-                .startActivity(intent)
+            intent.putExtra("nombreCuidador", cuidador.nCompleto)
+            intent.putExtra("precioCuidador", cuidador.precio)
+
+            context.startActivity(intent)
         }
     }
 }

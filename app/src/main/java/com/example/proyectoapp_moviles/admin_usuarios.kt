@@ -42,13 +42,16 @@ class admin_usuarios : AppCompatActivity() {
 
         btnCerrarSesion.setOnClickListener {
 
+            // Cerrar sesión
             FirebaseAuth.getInstance().signOut()
 
+            // Ir al login
             val intent = Intent(
                 this,
                 MainActivity::class.java
             )
 
+            // Limpiar actividades anteriores
             intent.flags =
                 Intent.FLAG_ACTIVITY_NEW_TASK or
                         Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -57,6 +60,8 @@ class admin_usuarios : AppCompatActivity() {
 
             finish()
         }
+
+
     }
 
     private fun cargarUsuarios() {

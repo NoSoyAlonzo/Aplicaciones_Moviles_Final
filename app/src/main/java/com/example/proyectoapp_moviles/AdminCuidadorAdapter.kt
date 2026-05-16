@@ -9,13 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoapp_moviles.model.Cuidador
 
 class AdminCuidadorAdapter(
-
-    private val lista: List<Cuidador>,
-
+    private var lista: List<Cuidador>,
     private val onAceptar: (Cuidador) -> Unit,
-
     private val onRechazar: (Cuidador) -> Unit
-
 ) : RecyclerView.Adapter<AdminCuidadorAdapter.ViewHolder>() {
 
     class ViewHolder(view: View)

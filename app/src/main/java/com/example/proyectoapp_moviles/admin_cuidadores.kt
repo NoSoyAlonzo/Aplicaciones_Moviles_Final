@@ -1,15 +1,20 @@
 package com.example.proyectoapp_moviles
 
+import android.content.Intent
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectoapp_moviles.DAO.CuidadorDAO
+import com.google.firebase.auth.FirebaseAuth
 
 class admin_cuidadores : AppCompatActivity() {
 
     private lateinit var recycler: RecyclerView
+    private lateinit var adapter: AdminCuidadorAdapter
 
     private val dao = CuidadorDAO()
 
@@ -17,60 +22,68 @@ class admin_cuidadores : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_cuidadores)
 
-        recycler =
-            findViewById(R.id.recyclerCuidadores)
+        recycler = findViewById(R.id.recyclerCuidadores)
+        recycler.layoutManager = LinearLayoutManager(this)
 
-        recycler.layoutManager =
-            LinearLayoutManager(this)
+        adapter = AdminCuidadorAdapter(
+            emptyList(),
+            {},
+            {}
+        )
+        recycler.adapter = adapter
+
+        val btnUsuarios = findViewById<Button>(R.id.btnUsuarios)
+
+        btnUsuarios.setOnClickListener {
+
+            startActivity(Intent(this, admin_usuarios::class.java))
+        }
+
+        val btnCerrarSesion =
+            findViewById<ImageButton>(R.id.btnCerrarSesion)
+
+
+        btnCerrarSesion.setOnClickListener {
+
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+            finish()
+        }
 
         cargarSolicitudes()
     }
 
     private fun cargarSolicitudes() {
-
         dao.obtenerTodos { lista ->
 
-            // SOLO LOS PENDIENTES
-            val pendientes =
-                lista.filter { !it.aceptado }
+            val pendientes = lista.filter { !it.aceptado }
 
-            recycler.adapter =
-                AdminCuidadorAdapter(
+            adapter = AdminCuidadorAdapter(
 
-                    pendientes,
+                pendientes,
 
-                    // ACEPTAR
-                    { cuidador ->
+                { cuidador ->
+                    cuidador.aceptado = true
+                    dao.actualizar(cuidador)
 
-                        cuidador.aceptado = true
+                    Toast.makeText(this, "Cuidador aceptado", Toast.LENGTH_SHORT).show()
+                    cargarSolicitudes()
+                },
 
-                        dao.actualizar(cuidador)
+                { cuidador ->
+                    dao.eliminar(cuidador.id)
 
-                        Toast.makeText(
-                            this,
-                            "Cuidador aceptado",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                    Toast.makeText(this, "Solicitud rechazada", Toast.LENGTH_SHORT).show()
+                    cargarSolicitudes()
+                }
+            )
 
-                        // RECARGAR LISTA
-                        cargarSolicitudes()
-                    },
-
-                    // RECHAZAR
-                    { cuidador ->
-
-                        dao.eliminar(cuidador.id)
-
-                        Toast.makeText(
-                            this,
-                            "Solicitud rechazada",
-                            Toast.LENGTH_SHORT
-                        ).show()
-
-                        // RECARGAR LISTA
-                        cargarSolicitudes()
-                    }
-                )
+            recycler.adapter = adapter
         }
     }
 }
