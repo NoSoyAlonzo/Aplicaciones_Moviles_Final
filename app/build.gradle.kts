@@ -64,6 +64,7 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation("com.google.firebase:firebase-functions:21.0.0")
+    implementation(libs.androidx.material3)
 
 
 

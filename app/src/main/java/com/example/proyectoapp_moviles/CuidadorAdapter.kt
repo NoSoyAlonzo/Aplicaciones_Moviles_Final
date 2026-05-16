@@ -59,7 +59,6 @@ class CuidadorAdapter(
 
             val intent = Intent(context, Reservas::class.java)
 
-            // 🔥 IMPORTANTE: ESTE ES EL QUE TE FALTABA
             intent.putExtra("uidCuidador", cuidador.uidUsuario)
 
             intent.putExtra("nombreCuidador", cuidador.nCompleto)

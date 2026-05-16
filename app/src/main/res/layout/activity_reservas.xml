@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
-                        android:id="@+id/txtFechas"
+                        android:id="@+id/txtFechasSeleccion"
                         android:text="Ninguna fecha seleccionada"
                         android:layout_marginBottom="10dp"
                         android:textColor="@color/gray"
@@ -165,13 +165,14 @@
 
                     <!-- FECHAS DINÁMICAS -->
                     <TextView
-                        android:id="@+id/txtFechas"
+                        android:id="@+id/txtFechasResumen"
                         android:text="Selecciona fechas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
                     <!-- MASCOTA -->
                     <TextView
+                        android:id="@+id/txtMascotaResumen"
                         android:text="Selecciona tu mascota"
                         android:textStyle="bold"
                         android:layout_marginTop="12dp"

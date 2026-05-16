@@ -1,5 +1,6 @@
 package com.example.proyectoapp_moviles
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -8,7 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectoapp_moviles.DAO.UsuarioDAO
 import com.example.proyectoapp_moviles.model.Usuario
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import java.util.Calendar
 
 class registro_form : AppCompatActivity() {
 
@@ -26,7 +29,41 @@ class registro_form : AppCompatActivity() {
         val txtNombre = findViewById<EditText>(R.id.nombre_registro)
         val txtEmail = findViewById<EditText>(R.id.correo_electronico)
         val txtPassword = findViewById<EditText>(R.id.contrasena)
-        val txtFecha = findViewById<EditText>(R.id.fecha_nacimiento)
+
+        val fechaNacimiento =
+            findViewById<TextInputEditText>(R.id.fecha_nacimiento)
+
+        fechaNacimiento.setOnClickListener {
+
+            val calendar = Calendar.getInstance()
+
+            val year = calendar.get(Calendar.YEAR)
+            val month = calendar.get(Calendar.MONTH)
+            val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+            val datePicker = DatePickerDialog(
+                this,
+                { _, selectedYear, selectedMonth, selectedDay ->
+
+                    val fecha =
+                        String.format(
+                            "%02d/%02d/%04d",
+                            selectedDay,
+                            selectedMonth + 1,
+                            selectedYear
+                        )
+
+                    fechaNacimiento.setText(fecha)
+
+                },
+                year,
+                month,
+                day
+            )
+
+            datePicker.show()
+        }
+
         val txtCelular = findViewById<EditText>(R.id.numero_celular)
 
         val btn = findViewById<Button?>(R.id.Registrar)
@@ -52,7 +89,7 @@ class registro_form : AppCompatActivity() {
                             nombre = txtNombre.text.toString(),
                             e_mail = correo,
                             password = password,
-                            fechaN = txtFecha.text.toString(),
+                            fechaN = fechaNacimiento.text.toString(),
                             noCelular = txtCelular.text.toString()
                         )
 
