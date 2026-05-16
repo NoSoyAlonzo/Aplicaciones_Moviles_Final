@@ -80,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Nombre de la mascota"
+
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -87,7 +88,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- ESPECIE -->
@@ -103,7 +106,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
-                        android:inputType="none" />
+                        android:inputType="none"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- RAZA -->
@@ -119,7 +124,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -163,7 +170,9 @@
                         android:layout_height="wrap_content"
                         android:minLines="3"
                         android:padding="12dp"
-                        android:inputType="textMultiLine" />
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- DIETA -->
@@ -179,7 +188,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="12dp"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- FRECUENCIA -->
@@ -201,21 +212,26 @@
                         android:id="@+id/r_2veces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2 veces" />
+                        android:text="2 veces"
+                        android:textColor="@color/black"
+                        />
 
                     <RadioButton
                         android:id="@+id/r_3veces"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="3 veces" />
+                        android:text="3 veces" android:textColor="@color/black"
+                        />
 
                     <RadioButton
                         android:id="@+id/r_libre"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:text="Libre" />
+                        android:text="Libre"
+                        android:textColor="@color/black"
+                        />
 
                 </RadioGroup>
 
@@ -260,7 +276,8 @@
                         android:layout_height="wrap_content"
                         android:minLines="3"
                         android:padding="12dp"
-                        android:inputType="textMultiLine" />
+                        android:inputType="textMultiLine"
+                        android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- FOTO -->
