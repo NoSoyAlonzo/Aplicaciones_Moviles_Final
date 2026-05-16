@@ -220,11 +220,11 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnLogout"
+                android:id="@+id/btnCerrarSesion"
                 android:text="Cerrar Sesión"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/pastel_durazno"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

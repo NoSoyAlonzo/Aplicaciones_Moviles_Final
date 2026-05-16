@@ -1,32 +1,76 @@
 package com.example.proyectoapp_moviles
 
-import android.content.Intent
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.os.Bundle
-import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.proyectoapp_moviles.DAO.CuidadorDAO
 
 class admin_cuidadores : AppCompatActivity() {
 
+    private lateinit var recycler: RecyclerView
+
+    private val dao = CuidadorDAO()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_admin_cuidadores)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        recycler =
+            findViewById(R.id.recyclerCuidadores)
 
-        // BOTON USUARIOS
-        val btnUsuarios = findViewById<Button>(R.id.btnUsuarios)
+        recycler.layoutManager =
+            LinearLayoutManager(this)
 
-        btnUsuarios.setOnClickListener {
-            val intent = Intent(this, admin_usuarios::class.java)
-            startActivity(intent)
+        cargarSolicitudes()
+    }
+
+    private fun cargarSolicitudes() {
+
+        dao.obtenerTodos { lista ->
+
+            // SOLO LOS PENDIENTES
+            val pendientes =
+                lista.filter { !it.aceptado }
+
+            recycler.adapter =
+                AdminCuidadorAdapter(
+
+                    pendientes,
+
+                    // ACEPTAR
+                    { cuidador ->
+
+                        cuidador.aceptado = true
+
+                        dao.actualizar(cuidador)
+
+                        Toast.makeText(
+                            this,
+                            "Cuidador aceptado",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        // RECARGAR LISTA
+                        cargarSolicitudes()
+                    },
+
+                    // RECHAZAR
+                    { cuidador ->
+
+                        dao.eliminar(cuidador.id)
+
+                        Toast.makeText(
+                            this,
+                            "Solicitud rechazada",
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        // RECARGAR LISTA
+                        cargarSolicitudes()
+                    }
+                )
         }
     }
 }

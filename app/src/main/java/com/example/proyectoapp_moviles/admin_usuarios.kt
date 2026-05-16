@@ -10,7 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectoapp_moviles.DAO.UsuarioDAO
 import android.app.AlertDialog
 import android.widget.EditText
+import android.widget.ImageButton
 import com.example.proyectoapp_moviles.model.Usuario
+import com.google.firebase.auth.FirebaseAuth
 
 
 class admin_usuarios : AppCompatActivity() {
@@ -33,6 +35,27 @@ class admin_usuarios : AppCompatActivity() {
         btnCuidadores.setOnClickListener {
 
             startActivity(Intent(this, admin_cuidadores::class.java))
+        }
+
+        val btnCerrarSesion =
+            findViewById<ImageButton>(R.id.btnCerrarSesion)
+
+        btnCerrarSesion.setOnClickListener {
+
+            FirebaseAuth.getInstance().signOut()
+
+            val intent = Intent(
+                this,
+                MainActivity::class.java
+            )
+
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+            startActivity(intent)
+
+            finish()
         }
     }
 

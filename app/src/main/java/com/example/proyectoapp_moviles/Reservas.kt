@@ -14,6 +14,11 @@ class Reservas : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reservas)
 
+//        val nombre =
+//            intent.getStringExtra("nombreCuidador")
+//
+//        txtCuidador.text = nombre
+
         val explorar = findViewById<LinearLayout>(R.id.explorar)
         val misMascotas = findViewById<LinearLayout>(R.id.mis_mascotas)
         val reservas = findViewById<LinearLayout>(R.id.reservas)

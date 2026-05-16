@@ -42,6 +42,7 @@
             android:textStyle="bold" />
 
         <ImageButton
+            android:id="@+id/btnCerrarSesion"
             android:layout_width="42dp"
             android:layout_height="42dp"
             android:background="@android:color/transparent"
@@ -93,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <Button
-            android:id="@+id/btnCuidadores"
+            android:id="@+id/btnUsuarios"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -104,6 +105,7 @@
             android:textStyle="bold"/>
 
         <Button
+            android:id="@+id/btnCuidadores"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

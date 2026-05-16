@@ -3,6 +3,7 @@ package com.example.proyectoapp_moviles.DAO
 import com.example.proyectoapp_moviles.model.Cuidador
 import com.example.proyectoapp_moviles.model.Usuario
 import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
 
 class CuidadorDAO {
     private val dbRef = FirebaseDatabase
@@ -40,16 +41,137 @@ class CuidadorDAO {
             callback(null)
         }
     }
-    fun obtenerTodos(callback: (List<Cuidador>) -> Unit) {
-        dbRef.get().addOnSuccessListener { snapshot ->
-            val list = mutableListOf<Cuidador>()
-            for (child in snapshot.children) {
-                child.getValue(Cuidador::class.java)?.let { list.add(it) }
-            }
-            callback(list)
+    // TODOS
+    fun obtenerTodos(
+        callback: (List<Cuidador>) -> Unit
+    ) {
 
+        dbRef.get()
+            .addOnSuccessListener { snapshot ->
+
+                val lista =
+                    mutableListOf<Cuidador>()
+
+                for (child in snapshot.children) {
+
+                    val cuidador =
+                        child.getValue(
+                            Cuidador::class.java
+                        )
+
+                    if (cuidador != null) {
+
+                        lista.add(cuidador)
+                    }
+                }
+
+                callback(lista)
+            }
+    }
+
+    // SOLO APROBADOS
+    fun obtenerAprobados(
+        callback: (List<Cuidador>) -> Unit
+    ) {
+
+        dbRef.get()
+
+            .addOnSuccessListener { snapshot ->
+
+                val lista =
+                    mutableListOf<Cuidador>()
+
+                for (child in snapshot.children) {
+
+                    val cuidador =
+                        child.getValue(
+                            Cuidador::class.java
+                        )
+
+                    Log.d(
+                        "FIREBASE_DEBUG",
+                        child.value.toString()
+                    )
+
+                    if (
+                        cuidador != null &&
+                        cuidador.aceptado == true
+                    ) {
+
+                        lista.add(cuidador)
+                    }
+                }
+
+                Log.d(
+                    "FIREBASE_DEBUG",
+                    "APROBADOS: ${lista.size}"
+                )
+
+                callback(lista)
             }
 
+            .addOnFailureListener {
+
+                Log.d(
+                    "FIREBASE_DEBUG",
+                    "ERROR FIREBASE"
+                )
+            }
+    }
+
+    // APROBAR
+    fun aprobarCuidador(id: String) {
+
+        dbRef.child(id)
+            .child("aceptado")
+            .setValue(true)
+    }
+
+    fun existeCuidador(
+        uid: String,
+        callback: (Boolean) -> Unit
+    ) {
+
+        dbRef.orderByChild("uidUsuario")
+            .equalTo(uid)
+            .get()
+            .addOnSuccessListener { snapshot ->
+
+                callback(snapshot.exists())
+            }
+    }
+
+    fun verificarSiEsCuidador(
+        uid: String,
+        callback: (Boolean) -> Unit
+    ) {
+
+        dbRef.get()
+            .addOnSuccessListener { snapshot ->
+
+                var encontrado = false
+
+                for (child in snapshot.children) {
+
+                    val cuidador =
+                        child.getValue(Cuidador::class.java)
+
+                    if (
+                        cuidador != null &&
+                        cuidador.uidUsuario == uid
+                    ) {
+
+                        encontrado = true
+                        break
+                    }
+                }
+
+                callback(encontrado)
+            }
+            .addOnFailureListener {
+
+                callback(false)
+            }
     }
 
 
