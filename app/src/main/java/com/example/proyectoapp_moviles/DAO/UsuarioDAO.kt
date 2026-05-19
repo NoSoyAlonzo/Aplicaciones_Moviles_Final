@@ -2,6 +2,7 @@ package com.example.proyectoapp_moviles.DAO
 
 import com.example.proyectoapp_moviles.model.Cuidador
 import com.example.proyectoapp_moviles.model.Usuario
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
 class UsuarioDAO {
@@ -28,9 +29,17 @@ class UsuarioDAO {
     }
 
 
-    fun actualizar(usuario: Usuario) {
 
+    fun actualizar(usuario: Usuario) {
         dbRef.child(usuario.id).setValue(usuario)
+
+        FirebaseAuth.getInstance().currentUser?.updatePassword(usuario.password)
+            ?.addOnSuccessListener {
+                println("Contraseña actualizada")
+            }
+            ?.addOnFailureListener { e ->
+                println("Error: ${e.message}")
+            }
     }
 
 

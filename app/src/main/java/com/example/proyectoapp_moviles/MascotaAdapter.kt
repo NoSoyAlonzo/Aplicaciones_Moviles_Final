@@ -66,9 +66,6 @@ class MascotaAdapter(
         holder.txtInstrucciones.text =
             mascota.instrucciones_salud
 
-        holder.btnEliminar.setOnClickListener {
-            onEliminar(mascota)
-        }
 
         holder.btnEditar.setOnClickListener {
             onEditar(mascota)
